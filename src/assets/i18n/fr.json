@@ -1,0 +1,12 @@
+{
+  "PAGES": {
+      "HOME": {
+          "TITLE": "Accueil",
+          "GO_TO_DETAIL": "Génération mot de passe"
+      },
+      "DETAIL": {
+        "TITLE": "Génération des mots de passe",
+        "BACK_TO_HOME": "Retour accueil"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "assets/color";
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CAN (MUST) BE REMOVED ! Sample Global style */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  //background: url(./assets/background.jpg) no-repeat center fixed;
+  //background-color: $main;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1048%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(37%2c 47%2c 57%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c426.084C78.258%2c412.098%2c142.085%2c366.247%2c214.967%2c334.495C304.542%2c295.471%2c430.307%2c303.622%2c477.488%2c218.061C524.115%2c133.504%2c462.917%2c29.697%2c433.811%2c-62.373C408.85%2c-141.33%2c383.017%2c-223.354%2c320.702%2c-277.89C261.914%2c-329.34%2c176.176%2c-323.63%2c103.258%2c-351.666C21.776%2c-382.994%2c-46.872%2c-467.687%2c-132.793%2c-452.25C-218.528%2c-436.846%2c-258.112%2c-338.768%2c-318.413%2c-275.907C-382.472%2c-209.129%2c-473.551%2c-160.856%2c-497.947%2c-71.594C-523.17%2c20.697%2c-490.033%2c118.61%2c-449.982%2c205.5C-410.03%2c292.175%2c-356.449%2c379.289%2c-270.752%2c421.298C-188.026%2c461.851%2c-90.694%2c442.292%2c0%2c426.084' fill='%231f272f'%3e%3c/path%3e%3cpath d='M1440 1230.891C1566.583 1228.853 1704.842 1198.3220000000001 1790.051 1104.691 1871.8220000000001 1014.8389999999999 1817.8809999999999 866.0840000000001 1871.298 756.967 1927.136 642.904 2119.538 590.585 2103.391 464.619 2087.337 339.378 1896.716 330.594 1805.4569999999999 243.32999999999998 1726.417 167.75 1707.532 33.972999999999956 1607.296-9.758000000000038 1504.86-54.44799999999998 1384.176-25.648000000000025 1279.661 13.937000000000012 1179.962 51.69799999999998 1111.501 135.12599999999998 1033.339 207.627 944.923 289.639 806.969 347.159 791.483 466.757 775.975 586.519 909.876 669.343 959.284 779.535 1009.178 890.81 993.7239999999999 1032.6100000000001 1082.627 1116.083 1175.728 1203.498 1312.31 1232.9470000000001 1440 1230.891' fill='%232b3743'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1048'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+
+  .title {
+    color: white;
+    margin: 0;
+    padding: 50px 20px;
+  }
+
+  a {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+
+    &:hover {
+      background: #fff;
+      color: #ed3330 !important;
+      letter-spacing: 1px;
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+      transition: all 0.4s ease 0s;
+    }
+  }
+}
+
