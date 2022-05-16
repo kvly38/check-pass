@@ -7,6 +7,9 @@
       "DETAIL": {
         "TITLE": "Génération des mots de passe",
         "BACK_TO_HOME": "Retour accueil"
+    },
+    "NAVBAR": {
+      "BACK": "Retour"
     }
   }
 }
