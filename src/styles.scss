@@ -51,3 +51,9 @@ html, body {
   }
 }
 
+app-navbar {
+  overflow: hidden;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+}
