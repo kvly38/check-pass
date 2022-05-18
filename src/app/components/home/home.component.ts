@@ -1,24 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// Angular
+import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
+
+// Traductions
+import { TranslateService } from '@ngx-translate/core';
+
+// Interfaces
+import { RoutesUse } from '../../interfaces/routesUse';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  test = 'test';
+  // Routes de l'app
+  routesUse: RoutesUse[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              public translate: TranslateService) {
 
-  ngOnInit(): void {
-    console.log('HomeComponent INIT');
+    // Récupère les traductions pour les routes
+    this.translate.get([
+      'PAGES.ROUTING.GENERATE.TITLE',
+      'PAGES.ROUTING.GENERATE.CONTENT',
+    ]).subscribe((words) => {
+
+      // Cherche l'ensemble des routes de l'application (source: app-routing.modules.ts)
+      this.router.config.forEach((r: Route) => {
+        const path = r.path;
+        // Supprime les routes Home et 404
+        if (path !== '' && path !== '**' && path !== 'home') {
+          // TODO ajouter les routes ici avec les bonnes traduction dans le fichier ./assets/i18n/fr.json
+
+          this.routesUse = [
+            {
+              name: words['PAGES.ROUTING.GENERATE.TITLE'],
+              content: words['PAGES.ROUTING.GENERATE.CONTENT'],
+              path
+            }
+          ];
+        }
+      });
+      console.log(this.routesUse);
+    });
   }
-
-  changeValue(evt) {
-    console.log(evt.target.value);
-  }
-
 
 }
