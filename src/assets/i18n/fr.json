@@ -1,15 +1,27 @@
 {
   "PAGES": {
-      "HOME": {
-          "TITLE": "Accueil",
-          "GO_TO_DETAIL": "Génération mot de passe"
-      },
-      "DETAIL": {
-        "TITLE": "Génération des mots de passe",
-        "BACK_TO_HOME": "Retour accueil"
+    "HOME": {
+      "TITLE": "Accueil",
+      "GO_TO_DETAIL": "Génération mot de passe"
+    },
+    "DETAIL": {
+      "TITLE": "Génération des mots de passe",
+      "BACK_TO_HOME": "Retour accueil"
     },
     "NAVBAR": {
       "BACK": "Retour"
+    },
+    "GENERATE": {
+      "LETTERS": "Lettres",
+      "NUMBERS": "Nombres",
+      "SPECIALS": "Caractère spécial",
+      "LONG": "Longueur",
+      "DEFAULT": "Valeur par défaut",
+      "COPIE": {
+        "SUCCESS" : "Le mot de passe est copier",
+        "ERROR" : "Le mot de passe n'a pas pu être copier"
+      },
+      "GENERATION": ""
     },
     "ROUTING": {
       "GENERATE": {

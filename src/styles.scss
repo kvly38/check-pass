@@ -57,3 +57,17 @@ app-navbar {
   position: fixed;
   top: 0;
 }
+
+// Slider
+.ngx-slider .ngx-slider-pointer {
+  width: 20px!important;
+  height: 20px!important;
+  top: -8px!important;
+  background-color: #0d6efd!important;
+
+  &:after{
+    width: 0!important;
+    height: 0!important;
+  }
+}
+
