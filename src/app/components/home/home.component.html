@@ -1,6 +1,13 @@
 <div class="content-app">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-  <a routerLink="/generate">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+
+  <div class="d-flex row container">
+    <div *ngFor="let r of routesUse" class="col-4">
+      <app-home-card
+        [name]="r.name"
+        [content]="r.content"
+        [path]="r.path"
+      ></app-home-card>
+    </div>
+  </div>
+
 </div>
