@@ -1,5 +1,5 @@
 // Angular
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Options } from '@angular-slider/ngx-slider';
 import { ChangeContext } from '@angular-slider/ngx-slider/change-context';
@@ -12,7 +12,7 @@ import { ClipboardService } from 'ngx-clipboard';
   templateUrl: './generate-password.component.html',
   styleUrls: ['./generate-password.component.scss']
 })
-export class GeneratePasswordComponent {
+export class GeneratePasswordComponent implements OnInit {
 
   // Public
   // ============================================================================
@@ -62,10 +62,10 @@ export class GeneratePasswordComponent {
   // ============================================================================
   private letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   private numbers = '0123456789';
-  private specials  = '@&$!#?';
+  private specials  = '@&$!#?^£€*µ';
 
   constructor(private formBuild: FormBuilder,
-              private toastr: ToastrService,
+              private toast: ToastrService,
               public translate: TranslateService,
               private clipboardApi: ClipboardService) {
 
@@ -77,6 +77,12 @@ export class GeneratePasswordComponent {
       this.copieWordErr = word['PAGES.GENERATE.COPIE.ERROR'];
     });
 
+  }
+
+  ngOnInit(): void {
+    // Désactive-les forms
+    this.formGenerate.get('password').disable();
+    this.formGenerate.get('letters').disable();
   }
 
   // Récupère les valeurs des checkbox
@@ -153,9 +159,9 @@ export class GeneratePasswordComponent {
       // Copie le contenu
       this.clipboardApi.copyFromContent(pws);
       // Toast
-      this.toastr.success(this.copieWord);
+      this.toast.success(this.copieWord);
     } else {
-      this.toastr.error(this.copieWordErr);
+      this.toast.error(this.copieWordErr);
     }
   }
 
