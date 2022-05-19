@@ -75,11 +75,6 @@ Please check `providers/electron.service.ts` to watch how conditional import of 
 - Web's one (like bootstrap, material, tailwind...)
     - It have to be added in `dependencies` of `package.json  (root folder)`
 
-## Add a dependency with ng-add
-
-You may encounter some difficulties with `ng-add` because this project doesn't use the defaults `@angular-builders`. \
-For example you can find [here](HOW_TO.md) how to install Angular-Material with `ng-add`.
-
 ## Browser mode
 
 Maybe you only want to execute the application in the browser with hot reload? Just run `npm run dev:web`.
@@ -94,9 +89,3 @@ Maybe you only want to execute the application in the browser with hot reload? J
 | `npm run e:b`       | Builds your application and creates an app consumable based on your operating system                  |
 
 **Your application is optimised. Only /dist folder and NodeJS dependencies are included in the final bundle.**
-
-## You want to use a specific lib (like rxjs) in electron main thread ?
-
-YES! You can do it! Just by importing your library in npm dependencies section of `app/package.json` with `npm install --save XXXXX`. \
-It will be loaded by electron during build phase and added to your final bundle. \
-Then use your library by importing it in `app/main.ts` file. Quite simple, isn't it?

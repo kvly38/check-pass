@@ -37,3 +37,5 @@ Your project is not using the default builders for "build". The Angular Material
 @import '@angular/material/prebuilt-themes/indigo-pink.css'
 ```
 Angular Material Library is now installed in your project.
+
+Font-awesome V4.7: https://fontawesome.com/v4/icons/
