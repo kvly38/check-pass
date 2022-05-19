@@ -6,9 +6,14 @@ import { RouterModule } from '@angular/router';
 
 // Components
 import { GeneratePasswordComponent } from './generate-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+// Slider
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [GeneratePasswordComponent],
-  imports: [CommonModule, SharedModule, RouterModule]
+  imports: [CommonModule, SharedModule, RouterModule, ReactiveFormsModule, NgxSliderModule, ClipboardModule]
 })
 export class GeneratePasswordModule {}
