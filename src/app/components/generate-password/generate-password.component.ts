@@ -131,10 +131,8 @@ export class GeneratePasswordComponent {
    */
   refreshPassword(range: number): void {
     const characters: string = this.checkOptions();
-
-    console.log(characters);
-
     let password = '';
+
     for (let i = 0; i < range; i++) {
       password += characters.charAt(
         Math.floor(Math.random() * characters.length)
