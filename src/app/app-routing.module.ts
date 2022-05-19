@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './components/shared/components';
 import { HomeComponent } from './components/home/home.component';
 import { GeneratePasswordComponent } from './components/generate-password/generate-password.component';
+import { AnalysPasswordComponent } from './components/analys-password/analys-password.component';
 
 // Routing
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'generate',
     component: GeneratePasswordComponent
+  },
+  {
+    path: 'analys',
+    component: AnalysPasswordComponent
   },
   {
     path: 'home',

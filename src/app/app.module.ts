@@ -13,8 +13,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { HomeModule } from './components/home/home.module';
 import { GeneratePasswordModule } from './components/generate-password/generate-password.module';
+import { AnalysPasswordModule } from './components/analys-password/analys-password.module';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
+
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,6 +33,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
     SharedModule,
     HomeModule,
     GeneratePasswordModule,
+    AnalysPasswordModule,
+    FontAwesomeModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {

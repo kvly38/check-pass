@@ -10,6 +10,8 @@
     "experimentalDecorators": true,
     "allowJs": true,
     "target": "es5",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -167,7 +169,9 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "max-classes-per-file": [true, 3]
-  }
-,
+    "max-classes-per-file": [
+      true,
+      3
+    ]
+  },
 }
