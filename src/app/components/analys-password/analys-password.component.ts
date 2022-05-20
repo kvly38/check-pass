@@ -5,6 +5,10 @@ import { Console } from 'console';
 
 import crackAnalys from './crackTime.json';
 
+import { crackTime } from '../../interfaces/crackTime.interface';
+import { checkPoint } from '../../interfaces/checkPoint.interface';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-analys-password',
@@ -15,58 +19,28 @@ export class AnalysPasswordComponent implements OnInit {
   faCheck = faCheck;
   faXmark = faXmark;
 
+  // Todo ajouter traduction
   title: string = 'Analyse de mot de passe';
 
+  // ==========================================================
   analysStatus = false;
+  crackAnalysArray: crackTime[] = crackAnalys;
 
-  crackAnalysArray = crackAnalys;
-
-  crackAnalys_pool = {
-    name: '',
-    time: '',
-    passwordLength: 0,
-    poolOfCharactersPossible: {
-      numbersOnly: {
-        test: (password) => {
-          let reg = new RegExp(/[0-9]/g);
-          return reg.test(password);
-        }
-      },
-      upperOrLowerCaseLetters: {
-        test: (password) => {
-          let reg = new RegExp(/[a-z]/g);
-          let reg2 = new RegExp(/[A-Z]/g);
-          return reg.test(password) || reg2.test(password);
-        }
-      },
-      upperOrLowerCaseLettersMixed: {
-        test: (password) => {
-          let reg = new RegExp(/[a-z]/g);
-          let reg2 = new RegExp(/[A-Z]/g);
-          return reg.test(password) && reg2.test(password);
-        }
-      },
-      numbersUpperAndLowerCaseLetters: {
-        test: (password) => {
-          let reg = new RegExp(/[a-z]/g);
-          let reg2 = new RegExp(/[A-Z]/g);
-          let reg3 = new RegExp(/[0-9]/g);
-          return reg.test(password) && reg2.test(password) && reg3.test(password);
-        }
-      },
-      numbersUpperAndLowerCaseLettersSymbol: {
-        test: (password) => {
-          let reg = new RegExp(/[a-z]/g);
-          let reg2 = new RegExp(/[A-Z]/g);
-          let reg3 = new RegExp(/[0-9]/g);
-          let reg4 = new RegExp(/[^a-zA-Z0-9]/g);
-          return reg.test(password) && reg2.test(password) && reg3.test(password) && reg4.test(password);
-        }
-      }
+  regex: {
+    lowerLetters: RegExp,
+    upperLetters: RegExp,
+    numbers: RegExp,
+    symbol: RegExp,
+  } = {
+      lowerLetters: new RegExp(/[a-z]/),
+      upperLetters: new RegExp(/[A-Z]/),
+      numbers: new RegExp(/[0-9]/),
+      symbol: new RegExp(/[^a-zA-Z0-9]/),
     }
-  }
 
-  checkPoint = {
+  crackAnalysTime = '';
+
+  checkPoint: checkPoint = {
     minCharacters: {
       text: '8 caractères',
       min: 8,
@@ -84,67 +58,70 @@ export class AnalysPasswordComponent implements OnInit {
     }
   }
 
-
   passwordEntropy = {
     strength: '',
     entropy: 0,
     poolOfCharactersPossible: {
       number: {
-        value: 10,
-        test: (password) => {
-          let reg = new RegExp(/[0-9]/g);
-          return reg.test(password);
-        }
+        value: 10
       },
       lowerCase: {
-        value: 26,
-        test: (password) => {
-          let reg = new RegExp(/[a-z]/g);
-          return reg.test(password);
-        }
+        value: 26
       },
       upperCase: {
-        value: 26,
-        test: (password) => {
-          let reg = new RegExp(/[A-Z]/g);
-          return reg.test(password);
-        }
+        value: 26
       },
       symbol: {
-        value: 33,
-        test: (password) => {
-          let reg = new RegExp(/[^a-zA-Z0-9]/g);
-          return reg.test(password);
-        }
+        value: 33
       }
-
     }
   }
 
-  constructor() {
+  translateWords: string[] = [];
 
+  constructor(public translate: TranslateService) {
+    this.translate.get([
+      'PAGES.ANALYS.TITLE',
+      'PAGES.ANALYS.GO_TO_DETAIL',
+      'PAGES.ANALYS.GO_TO_HOME'
+    ]).subscribe((words: string[]) => {
+      this.translateWords = words;
+    });
   }
 
   ngOnInit(): void {
+
   }
 
-  passwordVerify(event) {
-    if (event.target.value.length < 3) {
+  passwordVerify(event): void {
+    let password = '';
+    this.analysStatus = false;
+    // Tant que l'utilisateur n'a pas inserer plus de 3 cara
+    if (event && event.target && event.target.value && event.target.value.length < 3) {
       this.analysStatus = false;
       return;
     }
-    let password = event.target.value;
+
+    password = event.target.value;
+    this.analysStatus = this.checkPassword(password);
+
+  }
+
+  checkPassword(password: string): boolean {
+    let result = true;
+
     this.checkPointVerify(password)
     this.passwordEntropyCalcul(password);
     this.passwordStrength(this.passwordEntropy.entropy);
     this.passwordPoolAnalys(password)
-    this.analysStatus = true;
+
+    return result;
   }
 
   checkPointVerify(password) {
     this.checkPoint.minCharacters.result = password.length >= this.checkPoint.minCharacters.min;
-    this.checkPoint.minUppercase.result = password.match(/[A-Z]/g) ? true : false;
-    this.checkPoint.minSpecialCharacter.result = password.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g) ? true : false;
+    this.checkPoint.minUppercase.result = this.regex.upperLetters.test(password);
+    this.checkPoint.minSpecialCharacter.result = this.regex.symbol.test(password);
   }
 
   //Password Entropy = (log2(n) * m)
@@ -156,16 +133,16 @@ export class AnalysPasswordComponent implements OnInit {
     let m = password.length;
     let poolOfCharactersPossible = this.passwordEntropy.poolOfCharactersPossible;
 
-    if (poolOfCharactersPossible.number.test(password)) {
+    if (this.regex.numbers.test(password)) {
       n += poolOfCharactersPossible.number.value;
     }
-    if (poolOfCharactersPossible.lowerCase.test(password)) {
+    if (this.regex.lowerLetters.test(password)) {
       n += poolOfCharactersPossible.lowerCase.value;
     }
-    if (poolOfCharactersPossible.upperCase.test(password)) {
+    if (this.regex.upperLetters.test(password)) {
       n += poolOfCharactersPossible.upperCase.value;
     }
-    if (poolOfCharactersPossible.symbol.test(password)) {
+    if (this.regex.symbol.test(password)) {
       n += poolOfCharactersPossible.symbol.value;
     }
 
@@ -175,65 +152,76 @@ export class AnalysPasswordComponent implements OnInit {
 
   }
 
-
-  passwordStrength(entropy_value) {
-    let entropy = entropy_value;
+  passwordStrength(entropy) {
     let strength = '';
+
     if (entropy < 64) {
-      strength = 'Very weak';
+      this.passwordEntropy.strength = 'Very weak';
     }
     else if (entropy < 80) {
-      strength = 'Weak';
+      this.passwordEntropy.strength = 'Weak';
     }
     else if (entropy < 112) {
-      strength = 'Moderate';
+      this.passwordEntropy.strength = 'Moderate';
     }
     else if (entropy < 128) {
-      strength = 'Strong';
+      this.passwordEntropy.strength = 'Strong';
     }
-    else {
-      strength = 'Very strong';
+    else if (entropy >= 129) {
+      this.passwordEntropy.strength = 'Very strong';
     }
-    this.passwordEntropy.strength = strength;
   }
 
   passwordPoolAnalys(password) {
-
-    let poolOfCharactersPossible = this.crackAnalys_pool.poolOfCharactersPossible;
 
     let poolName = '';
 
     let passwordLength = password.length;
 
-
-    if (poolOfCharactersPossible.numbersUpperAndLowerCaseLettersSymbol.test(password)) {
+    if (this.regexUpperAndLowerLettersSymbol(password)) {
       poolName = 'numbersUpperAndLowerCaseLettersSymbol';
-    }
-    else if (poolOfCharactersPossible.numbersUpperAndLowerCaseLetters.test(password)) {
+    } else if (this.regexUpperAndLowerLetters(password)) {
       poolName = 'numbersUpperAndLowerCaseLetters';
-    }
-    else if (poolOfCharactersPossible.upperOrLowerCaseLettersMixed.test(password)) {
+    } else if (this.regexMixedLetters(password)) {
       poolName = 'upperOrLowerCaseLettersMixed';
-    }
-    else if (poolOfCharactersPossible.upperOrLowerCaseLetters.test(password)) {
+    } else if (this.regexLowerOrUpperLetters(password)) {
       poolName = 'upperOrLowerCaseLetters';
-    }
-    else if (poolOfCharactersPossible.numbersOnly.test(password)) {
+    } else if (this.regexNumber(password)) {
       poolName = 'numbersOnly';
     }
 
 
-
     this.crackAnalysArray.forEach(element => {
-
-        // console.log(element)
-        // console.log(eval(String('element.' + poolName)))
-        console.log(element.numberOfCharacters)
-        console.log(passwordLength)
-
-      if (element.numberOfCharacters == passwordLength) {
-        this.crackAnalys_pool.time = eval(String('element.' + poolName));
+      if (poolName === '') {
+        this.crackAnalysTime = 'Inconnu'
+      }
+      else if (element.numberOfCharacters == passwordLength) {
+        this.crackAnalysTime = eval(String('element.' + poolName));
+        // this.crackAnalys_pool.time = eval(String('element.' + poolName));
       }
     });
   }
+
+  regexNumber(password: string): boolean {
+    return this.regex.lowerLetters.test(password);
+  }
+
+  regexLowerOrUpperLetters(password): boolean {
+    return this.regex.lowerLetters.test(password) || this.regex.upperLetters.test(password);
+  }
+
+  regexMixedLetters(password): boolean {
+    return this.regex.lowerLetters.test(password) && this.regex.upperLetters.test(password);
+  }
+
+  regexUpperAndLowerLetters(password): boolean {
+    return this.regex.lowerLetters.test(password) && this.regex.upperLetters.test(password) && this.regex.numbers.test(password);
+  }
+
+  regexUpperAndLowerLettersSymbol(password): boolean {
+    return this.regex.lowerLetters.test(password) && this.regex.upperLetters.test(password) &&
+      this.regex.numbers.test(password) && this.regex.symbol.test(password);
+  }
+
+
 }
