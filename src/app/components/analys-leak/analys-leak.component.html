@@ -1,0 +1,93 @@
+<div class="content-app">
+
+  <form class="container col-12 col-md-10 col-lg-8 d-flex row justify-content-center">
+    <!-- Password -->
+    <div class="input-group col-12 col-md-8 col-lg-9 justify-content-center">
+      <div class="overBtn col-10 col-md-8 col-lg-9">
+        <!-- Le mot de passe s'affiche ici -->
+        <input
+          [value]="formGenerate.controls.password.value"
+          [formControl]="toControl(formGenerate.controls.password)"
+          class="form-control">
+
+        <!-- Tric CSS -> notice: Le button passe par dessus l'input désactiver -->
+        <!-- Tric CSS -> Utilité ?: Permet d'avoir une action de (click) sur le bouton avec un input désactiver -->
+        <button (click)="copPass()">{{formGenerate.controls.password.value || 'PAGES.GENERATE.DEFAULT' | translate }}</button>
+
+      </div>
+      <!-- Button de refresh de mot de passe -->
+      <button class="btn btn-primary input-group-text col-1 col-md-1 col-lg-1"
+              (click)="refreshPassword(formGenerate.get('range').value)">
+        <i class="fa fa-refresh"></i>
+      </button>
+    </div>
+
+    <!-- Range selector -->
+    <div class="col-12 col-md-9 col-lg-10">
+      <label for="rangeSelector" class="form-label">
+        {{ 'PAGES.GENERATE.LONG' | translate }} ({{formGenerate.controls.range.value}})
+      </label>
+      <ngx-slider id="rangeSelector"
+                  [formControl]="toControl(this.formGenerate.controls.range)"
+                  [value]="defaultLong"
+                  [options]="optionSlider"
+                  (userChange)="changeRange($event)">
+      </ngx-slider>
+    </div>
+
+    <div class="d-flex row col-12 col-md-9 col-lg-10">
+      <!-- Letters-->
+      <div class="col-12 col-md-4 col-lg-4">
+        <input [formControl]="toControl(formGenerate.controls.letters)"
+               class="form-check-input"
+               type="checkbox"
+               id="letterCheck"
+               (change)="changeCheckbox(0, $event)">
+
+        <label class="form-check-label" for="letterCheck">
+          {{ 'PAGES.GENERATE.LETTERS' | translate }}
+        </label>
+
+        <div *ngIf="formGenerate.controls.letters.touched && !formGenerate.controls.letters.valid">
+          {{formGenerate.controls.letters.errors}}
+        </div>
+      </div>
+
+      <!-- Numbers-->
+      <div class="col-12 col-md-4 col-lg-4">
+        <input [formControl]="toControl(formGenerate.controls.numbers)"
+               class="form-check-input"
+               type="checkbox"
+               id="numberCheck"
+               (change)="changeCheckbox(1, $event)">
+
+        <label class="form-check-label" for="numberCheck">
+          {{ 'PAGES.GENERATE.NUMBERS' | translate }}
+        </label>
+
+        <div *ngIf="formGenerate.controls.numbers.touched && !formGenerate.controls.numbers.valid">
+          {{formGenerate.controls.numbers.errors}}
+        </div>
+      </div>
+
+      <!-- Specials-->
+      <div class="col-12 col-md-4 col-lg-4">
+        <input [formControl]="toControl(formGenerate.controls.specials)"
+               class="form-check-input"
+               type="checkbox"
+               id="specialsCheck"
+               (change)="changeCheckbox(2, $event)">
+
+        <label class="form-check-label" for="specialsCheck">
+          {{ 'PAGES.GENERATE.SPECIALS' | translate }}
+        </label>
+
+        <div *ngIf="formGenerate.controls.specials.touched && !formGenerate.controls.specials.valid">
+          {{formGenerate.controls.specials.errors}}
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</div>
