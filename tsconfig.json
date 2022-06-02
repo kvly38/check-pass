@@ -6,6 +6,9 @@
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowJs": true,
@@ -167,7 +170,9 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "max-classes-per-file": [true, 3]
-  }
-,
+    "max-classes-per-file": [
+      true,
+      3
+    ]
+  },
 }

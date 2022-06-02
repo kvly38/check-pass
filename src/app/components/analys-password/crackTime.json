@@ -1,0 +1,130 @@
+[
+  {
+    "numberOfCharacters": 3,
+    "numbersOnly": "instantané",
+    "upperOrLowerCaseLetters": "instantané",
+    "upperOrLowerCaseLettersMixed": "instantané",
+    "numbersUpperAndLowerCaseLetters": "instantané",
+    "numbersUpperAndLowerCaseLettersSymbol": "instantané"
+  },
+  {
+    "numberOfCharacters": 4,
+    "numbersOnly": "instantané",
+    "upperOrLowerCaseLetters": "instantané",
+    "upperOrLowerCaseLettersMixed": "instantané",
+    "numbersUpperAndLowerCaseLetters": "instantané",
+    "numbersUpperAndLowerCaseLettersSymbol": "instantané"
+  },
+  {
+    "numberOfCharacters": 5,
+    "numbersOnly": "instantané",
+    "upperOrLowerCaseLetters": "instantané",
+    "upperOrLowerCaseLettersMixed": "instantané",
+    "numbersUpperAndLowerCaseLetters": "3 secondes",
+    "numbersUpperAndLowerCaseLettersSymbol": "10 secondes"
+  },
+  {
+    "numberOfCharacters": 6,
+    "numbersOnly": "instantané",
+    "upperOrLowerCaseLetters": "instantané",
+    "upperOrLowerCaseLettersMixed": "8 secondes",
+    "numbersUpperAndLowerCaseLetters": "3 minutes",
+    "numbersUpperAndLowerCaseLettersSymbol": "13 minutes"
+  },
+  {
+    "numberOfCharacters": 7,
+    "numbersOnly": "instantané",
+    "upperOrLowerCaseLetters": "instantané",
+    "upperOrLowerCaseLettersMixed": "5 minutes",
+    "numbersUpperAndLowerCaseLetters": "3 heures",
+    "numbersUpperAndLowerCaseLettersSymbol": "17 heures"
+  },
+  {
+    "numberOfCharacters": 8,
+    "numbersOnly": "instantané",
+    "upperOrLowerCaseLetters": "13 minutes",
+    "upperOrLowerCaseLettersMixed": "3 heures",
+    "numbersUpperAndLowerCaseLetters": "10 jours",
+    "numbersUpperAndLowerCaseLettersSymbol": "57 jours"
+  },
+  {
+    "numberOfCharacters": 9,
+    "numbersOnly": "4 secondes",
+    "upperOrLowerCaseLetters": "6 heures",
+    "upperOrLowerCaseLettersMixed": "4 jours",
+    "numbersUpperAndLowerCaseLetters": "1 ans",
+    "numbersUpperAndLowerCaseLettersSymbol": "12 ans"
+  },
+  {
+    "numberOfCharacters": 10,
+    "numbersOnly": "40 secondes",
+    "upperOrLowerCaseLetters": "6 jours",
+    "upperOrLowerCaseLettersMixed": "169 jours",
+    "numbersUpperAndLowerCaseLetters": "106 ans",
+    "numbersUpperAndLowerCaseLettersSymbol": "928 ans"
+  },
+  {
+    "numberOfCharacters": 11,
+    "numbersOnly": "6 minutes",
+    "upperOrLowerCaseLetters": "169 jours",
+    "upperOrLowerCaseLettersMixed": "16 ans",
+    "numbersUpperAndLowerCaseLetters": "6000 ans",
+    "numbersUpperAndLowerCaseLettersSymbol": "71 000 ans"
+  },
+  {
+    "numberOfCharacters": 12,
+    "numbersOnly": "1 heure",
+    "upperOrLowerCaseLetters": "12 ans",
+    "upperOrLowerCaseLettersMixed": "600 ans",
+    "numbersUpperAndLowerCaseLetters": "108 000 ans",
+    "numbersUpperAndLowerCaseLettersSymbol": "5 millions d'années"
+  },
+  {
+    "numberOfCharacters": 13,
+    "numbersOnly": "11 heures",
+    "upperOrLowerCaseLetters": "314 ans",
+    "upperOrLowerCaseLettersMixed": "21 000 années",
+    "numbersUpperAndLowerCaseLetters": "25 millions d'années",
+    "numbersUpperAndLowerCaseLettersSymbol": "423 millions d'années"
+  },
+  {
+    "numberOfCharacters": 14,
+    "numbersOnly": "4 jours",
+    "upperOrLowerCaseLetters": "8000 ans",
+    "upperOrLowerCaseLettersMixed": "778 000 années",
+    "numbersUpperAndLowerCaseLetters": "1 billions d'années",
+    "numbersUpperAndLowerCaseLettersSymbol": "5 billions d'années"
+  },
+  {
+    "numberOfCharacters": 15,
+    "numbersOnly": "46 jours",
+    "upperOrLowerCaseLetters": "212 000 ans",
+    "upperOrLowerCaseLettersMixed": "28 millions d'années",
+    "numbersUpperAndLowerCaseLetters": "97 billions d'années",
+    "numbersUpperAndLowerCaseLettersSymbol": "2 trillions d'années"
+  },
+  {
+    "numberOfCharacters": 16,
+    "numbersOnly": "1 année",
+    "upperOrLowerCaseLetters": "143 millions d’années",
+    "upperOrLowerCaseLettersMixed": "1 billions d'années",
+    "numbersUpperAndLowerCaseLetters": "6 trillons d'années",
+    "numbersUpperAndLowerCaseLettersSymbol": "193 trillons d'années"
+  },
+  {
+    "numberOfCharacters": 17,
+    "numbersOnly": "12 ans",
+    "upperOrLowerCaseLetters": "512 millions d'années",
+    "upperOrLowerCaseLettersMixed": "36 billions d'années",
+    "numbersUpperAndLowerCaseLetters": "374 trillions d'années",
+    "numbersUpperAndLowerCaseLettersSymbol": "14 quadrillons d'années"
+  },
+  {
+    "numberOfCharacters": 18,
+    "numbersOnly": "126 ans",
+    "upperOrLowerCaseLetters": "3 billions d'années",
+    "upperOrLowerCaseLettersMixed": "1 trillions d'années",
+    "numbersUpperAndLowerCaseLetters": "23 quadrillons d'année",
+    "numbersUpperAndLowerCaseLettersSymbol": "1 quatrillions d'années"
+  }
+]

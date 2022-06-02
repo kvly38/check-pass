@@ -25,6 +25,8 @@ export class HomeComponent {
     this.translate.get([
       'PAGES.ROUTING.GENERATE.TITLE',
       'PAGES.ROUTING.GENERATE.CONTENT',
+      'PAGES.ROUTING.ANALYS.TITLE',
+      'PAGES.ROUTING.ANALYS.CONTENT',
     ]).subscribe((words) => {
 
       // Cherche l'ensemble des routes de l'application (source: app-routing.modules.ts)
@@ -38,6 +40,11 @@ export class HomeComponent {
             {
               name: words['PAGES.ROUTING.GENERATE.TITLE'],
               content: words['PAGES.ROUTING.GENERATE.CONTENT'],
+              path
+            },
+            {
+              name: words['PAGES.ROUTING.ANALYS.TITLE'],
+              content: words['PAGES.ROUTING.ANALYS.CONTENT'],
               path
             }
           ];
