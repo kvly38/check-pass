@@ -8,7 +8,6 @@ var win = null;
 var args = process.argv.slice(1), serve = args.some(function (val) { return val === '--serve'; });
 
 require('electron-reload')(__dirname, {
-    electron: require(`${__dirname}/node_modules/electron`),
     hardResetMethod: 'exit',
     argv: ['--devTools']
 });

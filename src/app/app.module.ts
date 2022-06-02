@@ -1,7 +1,3 @@
-
-//Com Electron API
-import {NgxElectronModule} from 'ngx-electron';
-
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -35,7 +31,6 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    NgxElectronModule ,
     CommonModule,
     BrowserModule,
     FormsModule,

@@ -27,6 +27,10 @@
       "GENERATE": {
         "TITLE": "Génération de mot de passe",
         "CONTENT": "Crée un mot de passe n'a jamais été aussi simple"
+      },
+      "LEAK": {
+        "TITLE": "Analyse de fuite ",
+        "CONTENT": "Curieux ?"
       }
     }
   }

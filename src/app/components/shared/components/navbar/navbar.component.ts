@@ -17,6 +17,7 @@ export class NavbarComponent {
     // TODO Ajouter les traductions si besoin
     this.translate.get([
       'PAGES.ROUTING.GENERATE.TITLE'
+      'PAGES.ROUTING.LEAK.TITLE'
     ]).subscribe((words) => {
       const path = this.router.url.replace('/', '');
       this.title = this.getTitle(path, words);
@@ -37,6 +38,8 @@ export class NavbarComponent {
     switch (path) {
       case 'generate':
         return trad['PAGES.ROUTING.GENERATE.TITLE'];
+      case 'leak':
+        return trad['PAGES.ROUTING.LEAK.TITLE'];
     }
   }
 
