@@ -31,7 +31,11 @@
       "ANALYS": {
         "TITLE": "Analyse du mot de passe",
         "CONTENT": "Prendre conscience du Danger du mot de passe ou petre un vraie Héro !"
-      }
+      },
+      "LEAK": {
+        "TITLE": "Analyse LEAK",
+        "CONTENT": "Curieux ? Un homme averti en vaux ! "
+      } 
     }
   }
 }

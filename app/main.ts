@@ -7,6 +7,125 @@ let win: BrowserWindow = null;
 const args: string[] = process.argv.slice(1),
   serve: boolean = args.some(val => val === '--serve');
 
+require('electron-reload')(__dirname, {
+  hardResetMethod: 'exit',
+  argv: ['--devTools']
+});
+
+import { ipcMain } from 'electron';
+import { ipcRenderer } from 'electron';
+
+
+
+ipcMain.on('btnAction', (event, mail) => {
+  if (mail) {
+    let ev = event;
+    // event.sender.send('leakReturn', 'nique tes morts');
+
+    // puppeteer.launch().then((browser) => {
+
+    //   console.log(1)
+
+    //   browser.newPage().then((page) => {
+    //     console.log(2)
+
+    //     page.goto('https://monitor.firefox.com/').then(() => {
+    //       console.log(3)
+
+
+    //       page.type('#scan-email', mail).then(() => {
+    //         console.log(4)
+
+    //         page.screenshot({ path: 'example.png' }).then(() => {
+    //           console.log(5)
+
+    //           page.keyboard.press('Enter').then(() => {
+    //             console.log(6)
+
+    //             page.waitForNavigation().then(() => {
+    //               console.log(7)
+
+    //               page.screenshot({ path: 'enter.png' }).then(() => {
+    //                 console.log(8)
+
+    //                 ev.sender.send('leakReturn', 'result');
+    //                 console.log(9)
+
+    //                 browser.close().then()
+    //                 console.log(10)
+
+    //               })
+
+    //             })
+
+    //           })
+
+    //         })
+
+    //       })
+
+    //     })
+
+    //   })
+
+
+    // })
+
+
+    (async () => {
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      await page.goto('https://monitor.firefox.com/');
+      // await page.$eval('input[id=scan-email]', el => el.value = 'Adenosine triphosphate');
+      await page.type('#scan-email', mail);
+      await page.screenshot({ path: 'example.png' });
+      console.log('keyboard');
+      await page.keyboard.press('Enter');
+
+
+      console.log('waitForNavigation');
+      await page.waitForNavigation();
+      console.log('New Page URL:', page.url());
+      await page.screenshot({ path: 'enter.png' });
+
+      // const data = await page.evaluate(() => {
+      //   return document.getElementsByClassName('.scan-results')
+      // });
+      const infoText = await page.evaluate(() => document.querySelector('.scan-results-headline').textContent);
+
+      const infoDetail = await page.evaluate(function () {
+        var infos : Array<{plateforme: string, date: string,dataCompromises:string,logo:string}> = [];
+        document.querySelectorAll('.breach-card').forEach(function (el) {
+          let leak = { plateforme: '', date: '', dataCompromises: '' , logo :""};
+          leak.plateforme = el.querySelector('.breach-title').textContent;
+          leak.date = el.querySelectorAll('.breach-value')[0].textContent;
+          leak.dataCompromises = el.querySelectorAll('.breach-value')[1].textContent;
+          let img = el.querySelector('img');
+          leak.logo = img.src
+          infos.push(leak);
+        });
+        return infos
+      }
+      );
+      const data = {
+        infoText: infoText,
+        infoDatail: infoDetail
+      }
+      console.log(data);
+      ev.sender.send('leakReturn', data);
+
+      console.log('FDP');
+
+      await browser.close();
+    })();
+  }
+
+});
+
+const puppeteer = require('puppeteer');
+
+
+
 function createWindow(): BrowserWindow {
 
   const size = screen.getPrimaryDisplay().workAreaSize;
@@ -35,7 +154,7 @@ function createWindow(): BrowserWindow {
     let pathIndex: string = './index.html';
 
     if (fs.existsSync(path.join(__dirname, '../dist/index.html'))) {
-       // Path when running electron in local folder
+      // Path when running electron in local folder
       pathIndex = '../dist/index.html';
     }
 

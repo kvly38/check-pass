@@ -40,6 +40,8 @@ export class NavbarComponent {
         return trad['PAGES.ROUTING.GENERATE.TITLE'];
       case 'analys':
         return trad['PAGES.ROUTING.ANALYS.TITLE'];
+      case 'leak':
+        return trad['PAGES.ROUTING.LEAK.TITLE'];
     }
   }
 

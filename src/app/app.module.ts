@@ -21,10 +21,10 @@ import { ClipboardModule } from 'ngx-clipboard';
 // Components
 import { GeneratePasswordModule } from './components/generate-password/generate-password.module';
 import { AnalysPasswordModule } from './components/analys-password/analys-password.module';
+import { AnalysLeakModule } from './components/analys-leak/analys-leak.module';
 import { HomeModule } from './components/home/home.module';
 import { SharedModule } from './components/shared/shared.module';
 import { AppComponent } from './app.component';
-
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
@@ -40,6 +40,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
     HomeModule,
     GeneratePasswordModule,
     AnalysPasswordModule,
+    AnalysLeakModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -53,6 +54,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
       }
     })
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

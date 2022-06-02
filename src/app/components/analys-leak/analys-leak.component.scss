@@ -1,0 +1,64 @@
+@import "../../../assets/color.scss";
+
+:host {
+  color: $white;
+
+  label {
+    margin-left: .5em;
+  }
+
+  .overBtn {
+    display: inline-block;
+    position: relative;
+
+    //input {
+    //  width: 50vh;
+    //}
+
+    button {
+      background-color: transparent;
+      color: transparent;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      border: 0;
+      line-height: 1.5;
+      padding: .375rem .75rem;
+
+      &:hover {
+        border: 1px solid red;
+      }
+    }
+  }
+
+  .card {
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    /* Added */
+  }
+
+  .card-info{
+    background-color: transparent;
+    color: $red;
+  }
+  .card-leak{
+    background-color: transparent;
+    color: $secondary;
+  }
+
+  .leak-div{
+    float:left;
+    margin-right: 10px;
+  }
+  .leak-logo{
+
+    max-width: 24px;
+    max-height: 20px;
+  }
+
+}

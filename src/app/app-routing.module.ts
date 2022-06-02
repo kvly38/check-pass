@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './components/shared/components';
 import { HomeComponent } from './components/home/home.component';
 import { GeneratePasswordComponent } from './components/generate-password/generate-password.component';
 import { AnalysPasswordComponent } from './components/analys-password/analys-password.component';
+import { AnalysLeakComponent } from './components/analys-leak/analys-leak.component';
 
 // Routing
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'generate',
     component: GeneratePasswordComponent
+  },
+  {
+    path: 'leak',
+    component: AnalysLeakComponent
   },
   {
     path: 'home',

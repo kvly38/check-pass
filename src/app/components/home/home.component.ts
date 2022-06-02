@@ -27,6 +27,8 @@ export class HomeComponent {
       'PAGES.ROUTING.GENERATE.CONTENT',
       'PAGES.ROUTING.ANALYS.TITLE',
       'PAGES.ROUTING.ANALYS.CONTENT',
+      'PAGES.ROUTING.LEAK.TITLE',
+      'PAGES.ROUTING.LEAK.CONTENT',
     ]).subscribe((words) => {
 
       const allPath: string[] = [];
@@ -48,6 +50,11 @@ export class HomeComponent {
               name: words['PAGES.ROUTING.GENERATE.TITLE'],
               content: words['PAGES.ROUTING.GENERATE.CONTENT'],
               path: allPath.includes('generate') ? 'generate' : ''
+            },
+            {
+              name: words['PAGES.ROUTING.LEAK.TITLE'],
+              content: words['PAGES.ROUTING.LEAK.CONTENT'],
+              path: allPath.includes('leak') ? 'leak' : ''
             }
           ];
         }
