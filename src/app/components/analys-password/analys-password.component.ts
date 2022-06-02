@@ -116,9 +116,10 @@ export class AnalysPasswordComponent implements OnInit {
       .pipe(
         debounceTime(this.debounceTime),
       )
-      .subscribe((pass) => {
-        this.passwordVerify(pass);
-      });
+      .subscribe(
+        (pass) => {
+          this.passwordVerify(pass);
+        });
 
     this.translate.get([
       'PAGES.ANALYS.TITLE',
