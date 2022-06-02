@@ -117,7 +117,6 @@ export class AnalysPasswordComponent implements OnInit {
         debounceTime(this.debounceTime),
       )
       .subscribe((pass) => {
-        console.log('ici', pass);
         this.passwordVerify(pass);
       });
 
