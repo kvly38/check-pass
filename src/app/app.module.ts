@@ -20,6 +20,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 
 // Components
 import { GeneratePasswordModule } from './components/generate-password/generate-password.module';
+import { AnalysPasswordModule } from './components/analys-password/analys-password.module';
 import { HomeModule } from './components/home/home.module';
 import { SharedModule } from './components/shared/shared.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
     SharedModule,
     HomeModule,
     GeneratePasswordModule,
+    AnalysPasswordModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

@@ -27,6 +27,10 @@
       "GENERATE": {
         "TITLE": "Génération de mot de passe",
         "CONTENT": "Crée un mot de passe n'a jamais été aussi simple"
+      },
+      "ANALYS": {
+        "TITLE": "Analyse du mot de passe",
+        "CONTENT": "Prendre conscience du Danger du mot de passe ou petre un vraie Héro !"
       }
     }
   }
