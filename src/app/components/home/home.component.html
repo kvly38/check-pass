@@ -1,7 +1,7 @@
-<div class="content-app">
+<div class="content-app home">
 
-  <div class="d-flex row container">
-    <div *ngFor="let r of routesUse" class="col-4">
+  <div class="d-flex row container contentHome">
+    <div *ngFor="let r of routesUse" class="col-12 col-md-6 col-lg-4">
       <app-home-card
         [name]="r.name"
         [content]="r.content"

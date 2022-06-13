@@ -1,3 +1,10 @@
 :host {
-  
+  .home{
+    display: flex;
+    height: 100vh;
+
+    .contentHome{
+      margin: auto;
+    }
+  }
 }

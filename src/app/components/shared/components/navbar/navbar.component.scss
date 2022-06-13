@@ -1,6 +1,7 @@
 @import "~assets/color";
 
 h1 {
+  text-align: center;
   color: $tertiary;
 }
 
@@ -8,7 +9,7 @@ h1 {
 
 a {
   &.bb_button{
-    border: 2px solid #fff;
+    //border: 2px solid #fff;
     text-decoration: none;
     position: relative;
     z-index: 1;
@@ -30,17 +31,17 @@ a {
   &.bb_button--diag-2 {
 
     &:before {
-      top: -2px;
+      top: -1em;
       right: -2px;
-      bottom: 1em;
+      bottom: 2em;
       left: 1em;
       transform-origin: 100% 0;
     }
 
     &:after {
-      top: 1em;
+      top: 2em;
       right: 1em;
-      bottom: -2px;
+      bottom: -1em;
       left: -2px;
       transform-origin: 0 100%;
     }
